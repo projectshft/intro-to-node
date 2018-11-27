@@ -10,3 +10,17 @@ We're going to assume that you're a bit familiar JavaScript and how the internet
 For simplicity sake, we're going to be using [repl.it](repl.it). Navigate to [this link](https://repl.it/@AaronHayslip/Star-Wars-API) to get started. The first thing you'll want to do is click "fork" at the top, middle of the page:
 
 ![img](https://www.projectshift.io/wp-content/uploads/2018/11/Screen-Shot-2018-11-27-at-3.50.29-PM.png)
+
+This will allow you to have your own copy of our project. Okay, before we move on, we have a ton to talk about.
+
+## What is Node and Why is it Useful?
+Wikipedia says, "Node.js is an open-source, cross-platform JavaScript run-time environment that executes JavaScript code outside of a browser."
+
+What does that mean?
+
+JavaScript is almost always thought of as being run in the browser, but with Node, we can execute JavaScript outside of the browser. Why is this awesome? Well, it allows us to run Node in new environments to do awesome things like, create web servers.
+
+And what exactly does that mean?
+
+With Node, we're not stuck with Java, Ruby, Python, etc for writing code for the "back end", we can use JavaScript to do that also. We're not only _able_ to use JavaScript with Node, but thanks to Node, writing JavaScript on the back-end is super fast and performant. Node make's JavaScript a first-class server-side langauge.
+
