@@ -22,5 +22,5 @@ JavaScript is almost always thought of as being run in the browser, but with Nod
 
 And what exactly does that mean?
 
-With Node, we're not stuck with Java, Ruby, Python, etc for writing code for the "back end", we can use JavaScript to do that also. We're not only _able_ to use JavaScript with Node, but thanks to Node, writing JavaScript on the back-end is super fast and performant. Node make's JavaScript a first-class server-side langauge.
+With Node, we don't have to learn Java, Ruby, Python, etc to write code for the "back end" - we can use JavaScript to do that too, just like we do with the front-end! We're not only _able_ to use JavaScript on the back-end with Node, but thanks to Node, writing JavaScript on the back-end is super fast and performant. Node enables JavaScript to be a first-class server-side langauge.
 
