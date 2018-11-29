@@ -138,9 +138,7 @@ Our API is going to be brief and simple. We'll build a few different URLs to ena
 
 Since we don't have a database, we'll just store all the data that we have inside of a JSON file and send different parts of that data back as requests are made to our API. In Panel 1, create a new file called `people.js` and add the following to it:
 
-<details>
-  <summary>Click Here to Toggle Open the Code</summary>
-  ```js
+```js
   {
 "results": [
     {
@@ -429,6 +427,4 @@ Since we don't have a database, we'll just store all the data that we have insid
   ```
 
   
-</details>
-    
 ## More Stuff
