@@ -4,7 +4,7 @@
 The following is based on an in-person event, but has also been written in such a way that anyone could pick it up and code along! In this short lesson, we'll be build a simple API based on the "official" (unofficial) Star Wars API called [SWAPI](https://swapi.co/)! In the past we built a front-end application that uses this API and you can find that lesson [here](https://github.com/projectshft/swapi).
 
 ## Prerequisites
-We're going to assume that you're a bit familiar JavaScript and how the internet works. If not, you may be a little lost, but we challenge you to give it a shot either way. At the very least, this code-along should give you an idea of things to learn next!
+We're going to assume that you're a bit familiar with JavaScript and how the internet works. If not, you may be a little lost, but we challenge you to give it a shot either way. At the very least, this code-along should give you an idea of things to learn next!
 
 ## Setup
 For simplicity sake, we're going to be using [repl.it](repl.it). Navigate to [this link](https://repl.it/@AaronHayslip/Star-Wars-API) to get started. The first thing you'll want to do is click "fork" at the top, middle of the page:
@@ -67,8 +67,11 @@ We call the dispatching of data that we do with **HTTP**, "requests". For exampl
 There are 4 main types of **HTTP** requests:
 
 **GET**: You can make this request when you want to ask for more data. For example, let's say you want to get all the data from the Star Wars API on Luke Skywalker. You can make a request for that.
+
 **POST**: This is for creating and save new data. For example, every time you Tweet or Instagram, you're making a request to either Twitter or Instagram's servers to save your new Tweet or Instagram.
+
 **PUT**: This is for updating existing data. For example, let's say that you post something controversial on Facebook (which everyone does?) and then you want to change it. A POST request would be use to make this edit.
+
 **DELETE**: For the really bad Facebook post that your regret. Self explanatory.
 
 ## HTTP and Public Facing API's
