@@ -116,3 +116,18 @@ The above is an object with one property, `items`, which is an array of strings 
 ```
 
 Now we know how much our items cost, the location of the shopping trip and the time of the shopping trip.
+
+## Building our API
+Now we're ready to get started! Go to this link: [https://repl.it/@AaronHayslip/Star-Wars-API](https://repl.it/@AaronHayslip/Star-Wars-API). In a moment we'll start building our API, but let's first tour our workspace.
+
+For simplicity sake, we're using [repl.it](repl.it), but normally we'd write this code on files local to our computer and not with "repl.it".
+
+On "repl.it", you'll see 4 different "windows". We'll give them numbers below to make them easy to reference.
+
+![img](https://www.projectshift.io/wp-content/uploads/2018/11/Asset-1@200x-1.png)
+
+1. This panel shows us all the files in this project. We can select which files we want to work on from here.
+2. This panel is where we'll actually write our code
+3. This panel represents our actual browser. We'll make our requests using this window.
+4. 
+4.
