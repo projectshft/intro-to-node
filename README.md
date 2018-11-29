@@ -89,4 +89,30 @@ What just happened? Let's walk through it step-by-step:
 3. The Google Books API fufilled our request and responded with some JSON data.
 
 ## What is JSON?
-Well, I'm glad you asked. JSON stands for "JavaScript Object Notation". We could spend a ton of time on it, but it's essentially the most widely adopted way to format data on the web.
+Well, I'm glad you asked. JSON stands for "JavaScript Object Notation". We could spend a ton of time on it, but it's essentially the most widely adopted way to format data on the web. Most of the API's you would use would return it's data in this format. Additionally, most programming languages have functions that allow them to convert data in JSON - so whether your Web Server is built with Ruby, Python, JavaScript or whatever, it will be able to return JSON when used to build out an API.
+
+## What does JSON look like?
+JSON looks like JavaScript Arrays and Objects, because they are. You should be able to translate any data you can think of into this format. For example, a basic grocery list might look like this:
+
+```js
+{
+  "items": ["beer", "cheese", "milk", "bread"]
+}
+```
+
+The above is an object with one property, `items`, which is an array of strings to describe our list. We could add more data to the JSON above to make it more useful:
+
+```js
+{
+  "items": [
+    {"name": "beer", "price": 11},
+    {"name": "cheese", "price": 8},
+    {"name": "milk", "price": 5},
+    {"name": "bread", "price": 4},
+  ],
+  "grocery_store": "Harris Teeter",
+  "shopping_date": 2018-11-29T18:12:09+00:00
+}
+```
+
+Now we know how much our items cost, the location of the shopping trip and the time of the shopping trip.
