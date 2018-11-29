@@ -108,10 +108,10 @@ The above is an object with one property, `items`, which is an array of strings 
     {"name": "beer", "price": 11},
     {"name": "cheese", "price": 8},
     {"name": "milk", "price": 5},
-    {"name": "bread", "price": 4},
+    {"name": "bread", "price": 4}
   ],
   "grocery_store": "Harris Teeter",
-  "shopping_date": 2018-11-29T18:12:09+00:00
+  "shopping_date": "2018-11-29T18:12:09+00:00"
 }
 ```
 
