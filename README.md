@@ -128,6 +128,5 @@ On "repl.it", you'll see 4 different "windows". We'll give them numbers below to
 
 1. This panel shows us all the files in this project. We can select which files we want to work on from here.
 2. This panel is where we'll actually write our code
-3. This panel represents our actual browser. We'll make our requests using this window.
-4. 
-4.
+3. This panel represents our actual browser. We'll make our requests using this window in the URL bar.
+4. This panel represents our terminal. We won't have to do much from here thanks to Repl.it, but this is our "console" and where our code will log.
