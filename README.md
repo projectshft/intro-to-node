@@ -133,7 +133,7 @@ On "repl.it", you'll see 4 different "windows". We'll give them numbers below to
 
 As you can see, we're doing a console log inside of `index.js`. We can actually run this file if we press the big green "start" button at the top. You will see the code log inside the terminal (panel 4).
 
-## Planning Out our API
+## JSON for our API
 Our API is going to be brief and simple. We'll build a few different URLs to enable developers to get Star Wars data for their applications. Only our will be give them data on some of the "people" in Star Wars - just 10 of the people in fact.
 
 Since we don't have a database, we'll just store all the data that we have inside of a JSON file and send different parts of that data back as requests are made to our API. In Panel 1, create a new file called `people.js` and add the following to it:
@@ -426,5 +426,12 @@ Since we don't have a database, we'll just store all the data that we have insid
 }
   ```
 
-  
-## More Stuff
+## Our API Routes
+For our API, we'll want developer to be able to make GET requests to following routes for data. The root url will be `https://Star-Wars-API--aaronhayslip.repl.co` (because that's what repl.it gives us), but the following url's will be the routes we'll define for our API:
+
+- `/people`: This route will return _all_ the people in our `people.json` file. We'll also want to enable developers to pass this route an optional query to search for people by name. For example, if we make a GET reqeust to `https://Star-Wars-API--aaronhayslip.repl.co/people?name=skywalker`, it should return both Luke and Leia (I know - her real last name is Organa, but we're imagining that it remained Skywalker after birth).
+- `/person/:id`: This route will return a single person from our `people.json` file, based on the id. The syntax that looks like, `:id`, is a parameter. In other words, we'll replace the `:id` part with an actual id when we do the request. For example, `https://Star-Wars-API--aaronhayslip.repl.co/person/2` should return all the data for `C-3PO`.
+
+That's it for this little API! Let's get coding!
+
+## ExpressJS
