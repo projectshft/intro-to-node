@@ -474,10 +474,137 @@ The final piece of code is the code that allows our app to being listening for c
 
 To try all of this out, click "Start". Then, in panel 3, click this little button:
 
-![img]()
+![img](https://www.projectshift.io/wp-content/uploads/2018/11/Screen-Shot-2018-11-29-at-2.36.35-PM-1.png)
 
 That will open the repl.it browser in a new tab:
 
-![img]()
+![img](https://www.projectshift.io/wp-content/uploads/2018/11/Screen-Shot-2018-11-29-at-2.37.53-PM.png)
 
-The first thing you will see is an error, `Cannot GET /` which is because we don't have a route defined for `/`. But we do have on for `/people`! So change that URL to look like `https://star-wars-api--aaronhayslip.repl.co/people` and you should see a response!
+The first thing you will see is an error, `Cannot GET /` which is because we don't have a route defined for `/`. But we do have one for `/people`! So change that URL to look like `https://star-wars-api--aaronhayslip.repl.co/people` and you should see a response!
+
+![img](https://www.projectshift.io/wp-content/uploads/2018/11/Screen-Shot-2018-11-29-at-2.39.28-PM.png)
+
+## Returning All the People
+Now instead of just returning `hello world`, we want to return all the `people` from the JSON file. First, we'll have to read our file using the `fs` module. Change `index.js` to look like this:
+
+```js
+const express = require('express');
+const fs = require('fs');
+
+const app = express();
+
+app.get('/people', (req, res) => {
+  const people = JSON.parse(fs.readFileSync('people.json'));
+  
+  res.send(people);
+});
+
+app.listen(3000, () => {
+  console.log('server started');
+});
+```
+
+Now if you click "restart" and refresh the browser tab, you should see all the JSON data in the browser!
+
+## Querying a Search for People
+This is awesome, but what is someone wants to do a search for "Skywalker"? For example, what if instead of just making a request to `/people`, someone wants to make a request to `/people?name=skywalker`? Let's change our code to look like this:
+
+```js
+const express = require('express');
+const fs = require('fs');
+
+const app = express();
+
+app.get('/people', (req, res) => {
+  const people = JSON.parse(fs.readFileSync('people.json'));
+
+  if (req.query.name) {
+    const queryName = req.query.name.toLowerCase();
+
+    res.send(people.results.filter(p => p.name.toLowerCase().includes(queryName)))
+  } else {
+    res.send(people);
+  }
+});
+
+app.listen(3000, () => {
+  console.log('server started');
+});
+```
+
+Depending on your familiarity with JavaScript, this may look like jibberish. That's okay. What we're essentially doing is checking to see if there is a query called `name` on the URL. If there is, we're filtering out any of the "people" objects inside of `people.json` based on the query that came in with the request. Otherwise (`else`), we're just sending back all the people.
+
+## A Route for 1 Person
+Almost done! Now we want to define our next route which will enable developers to make requests to our API for 1 specific person based on their id. The route will look like this (at first):
+
+```js
+const express = require('express');
+const fs = require('fs');
+
+const app = express();
+
+app.get('/people', (req, res) => {
+  const people = JSON.parse(fs.readFileSync('people.json'));
+
+  if (req.query.name) {
+    const queryName = req.query.name.toLowerCase();
+
+    res.send(people.results.filter(p => p.name.toLowerCase().includes(queryName)))
+  } else {
+    res.send(people);
+  }
+});
+
+app.get('/person/:id', (req, res) => {
+
+});
+
+
+app.listen(3000, () => {
+  console.log('server started');
+});
+```
+
+The first thing we'll want to do is grab the `:id` parameter from the URL. We can do that inside of Express with `req.params` sort of like how we grabbed the query with `req.query`. Here is the rest of the code:
+
+```js
+const express = require('express');
+const fs = require('fs');
+
+const app = express();
+
+app.get('/people', (req, res) => {
+  const people = JSON.parse(fs.readFileSync('people.json'));
+
+  if (req.query.name) {
+    const queryName = req.query.name.toLowerCase();
+
+    res.send(people.results.filter(p => p.name.toLowerCase().includes(queryName)))
+  } else {
+    res.send(people);
+  }
+});
+
+app.get('/person/:id', (req, res) => {
+  const people = JSON.parse(fs.readFileSync('people.json')).results;
+  const allPossibleIds = people.map(p => p.id);
+  const id = parseInt(req.params.id);
+
+  if (!allPossibleIds.includes(id)) {
+    res.status(404)
+    res.send('This id does not exist');
+  } else {
+    res.send(people.filter(p => p.id === id));
+  }
+});
+
+
+app.listen(3000, () => {
+  console.log('server started');
+});
+```
+
+There are some complicated bits in there, but essentially we created an array called `allPossibleIds` which represented a list of all the ids we have in our `people.json` file. We did this just in case someone makes a request for an id that we don't have.
+
+## Conclusion
+
