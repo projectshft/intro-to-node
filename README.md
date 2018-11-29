@@ -435,3 +435,49 @@ For our API, we'll want developer to be able to make GET requests to following r
 That's it for this little API! Let's get coding!
 
 ## ExpressJS
+We're going to be using a framework called [Express JS](https://expressjs.com/) to make our API. We could built it without Express, but no one really would or should because it would be a pain. If you look at line 10 of `package.json`, you'll see that we're including `express`. You don't have to know how that works, just know that we're pulling the code in.
+
+Next add the following started code to `index.js`:
+
+```js
+const express = require('express');
+const fs = require('fs');
+
+const app = express();
+```
+
+For the sake of time, we're going to breeze through this. The above code is importing `express` in and also `fs`. `fs` is the "file system" module which is built into Node. We'll use it to read our JSON file.
+
+Next, `const app = express();` is kickstarting our Express code.
+
+## Defining a Route
+Let's start by defining a very simple route. Make `index.js` look like this:
+
+```js
+const express = require('express');
+const fs = require('fs');
+
+const app = express();
+
+app.get('/people', (req, res) => {
+  res.send('hello world!');
+});
+
+app.listen(3000, () => {
+  console.log('server started');
+});
+```
+
+We can use `get` to define a GET route. This function (`get`) takes two arguments. The first is the path of the URL (in this case, `/people`), and the second argument is a callback function which takes two parameters itself. These two paramaters are the "request" object (`req`) and "response" object `req`. Each of these items are objects that represent data about the request and about the response. Note that from our routes, we _have_ to send a response back (`res.send`).
+
+The final piece of code is the code that allows our app to being listening for connections on port 3000. Again, we won't go into too much depth in explaining that piece at the moment.
+
+To try all of this out, click "Start". Then, in panel 3, click this little button:
+
+![img]()
+
+That will open the repl.it browser in a new tab:
+
+![img]()
+
+The first thing you will see is an error, `Cannot GET /` which is because we don't have a route defined for `/`. But we do have on for `/people`! So change that URL to look like `https://star-wars-api--aaronhayslip.repl.co/people` and you should see a response!
