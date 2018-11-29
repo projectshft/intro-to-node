@@ -607,4 +607,11 @@ app.listen(3000, () => {
 There are some complicated bits in there, but essentially we created an array called `allPossibleIds` which represented a list of all the ids we have in our `people.json` file. We did this just in case someone makes a request for an id that we don't have.
 
 ## Conclusion
+We covered a ton just now! If you're not too lost and understand JavaScript well, checkout the things we just skimmed the surface of:
 
+- [Node JS](https://nodejs.org/en/)
+- [Express JS](https://expressjs.com/)
+- [JSON](https://www.json.org/)
+- [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)
+
+But if you're a little more lost and wondering where to start, start by learning 1 programming language in it's entirety! Not sure where to start? Start with JavaScript!
